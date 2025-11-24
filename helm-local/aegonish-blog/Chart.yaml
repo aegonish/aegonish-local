@@ -1,0 +1,19 @@
+
+apiVersion: v2
+name: aegonish-blog
+description: Local umbrella chart
+type: application
+version: 0.1.0
+dependencies:
+  - name: backend
+    repository: ""
+    version: 0.1.0
+    import-values: ["*"]
+  - name: frontend
+    repository: ""
+    version: 0.1.0
+    import-values: ["*"]
+  - name: mongo
+    repository: ""
+    version: 0.1.0
+    import-values: ["*"]

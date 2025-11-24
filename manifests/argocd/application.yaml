@@ -1,0 +1,21 @@
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: aegonish-local
+  namespace: argocd
+spec:
+  project: aegonish-local
+  source:
+    repoURL: https://github.com/PLACEHOLDER/aegonish-local
+    targetRevision: main
+    path: helm-local/aegonish-blog
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: aegonish
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

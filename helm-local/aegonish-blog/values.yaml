@@ -1,0 +1,19 @@
+
+backend:
+  image:
+    repository: aegonishblog/aegonish-backend
+    tag: latest
+  service:
+    port: 4000
+
+frontend:
+  image:
+    repository: aegonishblog/aegonish-frontend
+    tag: latest
+  service:
+    port: 80
+
+mongo:
+  image:
+    repository: mongo
+    tag: "6.0"
