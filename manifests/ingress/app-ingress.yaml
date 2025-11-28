@@ -9,7 +9,6 @@ spec:
     - host: localhost
       http:
         paths:
-          # Frontend
           - path: /
             pathType: Prefix
             backend:
@@ -17,8 +16,6 @@ spec:
                 name: frontend
                 port:
                   number: 80
-
-          # Backend API
           - path: /api
             pathType: Prefix
             backend:
@@ -26,8 +23,6 @@ spec:
                 name: backend
                 port:
                   number: 4000
-
-          # Uploads (backend serves these)
           - path: /uploads
             pathType: Prefix
             backend:
