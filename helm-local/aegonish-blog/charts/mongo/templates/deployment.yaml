@@ -17,4 +17,4 @@ spec:
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           ports:
             - containerPort: {{ .Values.service.port }}
-          args: ["--replSet", "rs0"]
+        #  args: ["--replSet", "rs0"]
