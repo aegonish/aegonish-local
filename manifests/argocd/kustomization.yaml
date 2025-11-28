@@ -4,16 +4,25 @@ kind: Kustomization
 namespace: argocd
 
 resources:
-  - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/core-install.yaml
+resources:
+  - namespace.yaml
+  - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
 
 patches:
+  # Disable Dex
   - path: argocd-disable-dex.yaml
     target:
       kind: ConfigMap
       name: argocd-cm
+
+  # Delete Dex deployment
   - patch: |-
       $patch: delete
       apiVersion: apps/v1
       kind: Deployment
-      metadata: 
+      metadata:
+        name: argocd-dex-server
+    target:
+      kind: Deployment
       name: argocd-dex-server
