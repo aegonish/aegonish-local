@@ -6,15 +6,20 @@ metadata:
 servers: 1
 agents: 2
 
-# Force API server to bind correctly on localhost
 kubeAPI:
   hostIP: "127.0.0.1"
   hostPort: "6445"
 
+# 👇 THIS exposes ingress 80/443 to Windows localhost
 ports:
-  - port: 8085:80
+  - port: 80:80
     nodeFilters:
-      - loadbalancer
+      - server:*
+      - agent:*
+  - port: 443:443
+    nodeFilters:
+      - server:*
+      - agent:*
 
 options:
   k3s:
@@ -23,16 +28,3 @@ options:
         nodeFilters:
           - server:*
           - agent:*
-
-  runtime:
-    dns:
-      servers:
-        - 8.8.8.8
-        - 1.1.1.1
-
-    hostAliases:
-      - ip: "8.8.8.8"
-        hostnames:
-          - ghcr.io
-          - quay.io
-          - registry.k8s.io

@@ -7,6 +7,12 @@ resources:
 resources:
   - namespace.yaml
   - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+    # Core ArgoCD install (NO Dex)
+  - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/core-install.yaml
+
+  # Your ArgoCD project & application
+  - project.yaml
+  - application.yaml
 
 
 patches:
