@@ -1,0 +1,6 @@
+image:
+  repository: aegonishblog/aegonish-backend
+  tag: latest
+
+service:
+  port: 4000

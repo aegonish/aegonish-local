@@ -1,0 +1,6 @@
+image:
+  repository: mongo
+  tag: "6.0"
+
+service:
+  port: 27017

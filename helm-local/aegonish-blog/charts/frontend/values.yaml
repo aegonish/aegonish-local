@@ -1,0 +1,5 @@
+image:
+  repository: aegonishblog/aegonish-frontend
+  tag: latest
+service:
+  port: 80

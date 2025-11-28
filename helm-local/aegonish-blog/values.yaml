@@ -1,4 +1,3 @@
-
 backend:
   image:
     repository: aegonishblog/aegonish-backend
