@@ -1,0 +1,13 @@
+[
+  {
+    "op": "replace",
+    "path": "/spec/template/spec/containers/0/image",
+    "value": "k8s.gcr.io/pause:3.8"
+  },
+  {
+    "op": "replace",
+    "path": "/spec/template/spec/containers/0/command",
+    "value": ["/bin/sh", "-c", "echo Dex disabled"]
+  }
+]
+

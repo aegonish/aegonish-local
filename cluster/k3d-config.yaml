@@ -1,17 +1,38 @@
-
 apiVersion: k3d.io/v1alpha5
 kind: Simple
 metadata:
   name: aegonish
+
 servers: 1
 agents: 2
+
+# Force API server to bind correctly on localhost
+kubeAPI:
+  hostIP: "127.0.0.1"
+  hostPort: "6445"
+
 ports:
   - port: 80:80
     nodeFilters:
       - loadbalancer
+
 options:
   k3s:
     extraArgs:
-      - arg: "--disable=traefik"
+      - arg: "--kubelet-arg=resolv-conf=/etc/resolv.conf"
         nodeFilters:
           - server:*
+          - agent:*
+
+  runtime:
+    dns:
+      servers:
+        - 8.8.8.8
+        - 1.1.1.1
+
+    hostAliases:
+      - ip: "8.8.8.8"
+        hostnames:
+          - ghcr.io
+          - quay.io
+          - registry.k8s.io

@@ -7,7 +7,7 @@ metadata:
 spec:
   project: aegonish-local
   source:
-    repoURL: https://github.com/PLACEHOLDER/aegonish-local
+    repoURL: https://github.com/aegonish/aegonish-local
     targetRevision: main
     path: helm-local/aegonish-blog
   destination:
