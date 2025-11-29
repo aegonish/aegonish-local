@@ -37,3 +37,8 @@ kibana:
   service:
     type: NodePort
     nodePort: 30601
+  # Disable pre-install hook to avoid waiting for ES certs that aren't ready
+  lifecycle:
+    preInstall:
+      enabled: false
+
