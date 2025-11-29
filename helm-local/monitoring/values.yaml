@@ -1,0 +1,22 @@
+kube-prometheus-stack:
+  grafana:
+    adminPassword: "admin"
+    service:
+      type: NodePort
+      nodePort: 30300
+    persistence:
+      enabled: false
+  prometheus:
+    prometheusSpec:
+      storageSpec: 
+        emptyDir:
+          medium: Memory
+      resources:
+        requests:
+          memory: 256Mi
+          cpu: 100m
+        limits:
+          memory: 1Gi
+          cpu: 500m
+  alertmanager:
+    enabled: false
