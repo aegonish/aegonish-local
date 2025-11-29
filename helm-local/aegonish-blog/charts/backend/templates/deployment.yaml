@@ -20,6 +20,26 @@ spec:
               value: "mongodb://mongo:27017/aegonish_blog"
             - name: PORT
               value: "4000"
+            - name: GOOGLE_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: backend-google-credentials
+                  key: client_id
+            - name: GOOGLE_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: backend-google-credentials
+                  key: client_secret
+            - name: GOOGLE_REDIRECT_URI
+              value: "https://developers.google.com/oauthplayground"
+            - name: GOOGLE_REFRESH_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: backend-google-credentials
+                  key: refresh_token
+            - name: GOOGLE_DRIVE_FOLDER_ID
+              value: "1c9O1S2u2ygET92zXpVEpHd_Y3yktCf8c"
           ports:
             - containerPort: {{ .Values.service.port }}
+
 
