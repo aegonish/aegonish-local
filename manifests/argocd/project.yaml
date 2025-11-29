@@ -8,8 +8,12 @@ spec:
   sourceRepos:
     - '*'
   destinations:
-    - namespace: aegonish
-      server: https://kubernetes.default.svc
+  - namespace: aegonish
+    server: https://kubernetes.default.svc
+  - namespace: monitoring
+    server: https://kubernetes.default.svc
+  - namespace: logging
+    server: https://kubernetes.default.svc
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'
